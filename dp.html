@@ -44,21 +44,43 @@
             <h2>What is Dynamic Programming?</h2>
             <p>Dynamic Programming (DP) is about solving problems with overlapping subproblems by saving your work. Instead of solving the same subproblems repeatedly, we store their solutions and reuse them when needed.</p>
             
-            <h2>Key Concepts</h2>
+            <h2>Definitions</h2>
             <ul>
                 <li>
-                    <strong>Top-down DP:</strong> Uses recursion with memoization to store solutions as we compute them
+                    <strong>Recursive Step:</strong> The part where a function calls itself on smaller versions of the problem.
                 </li>
                 <li>
-                    <strong>Bottom-up DP:</strong> Builds solutions iteratively using tabulation, starting from the base cases
+                    <strong>Base Case:</strong> The simplest case that ends the recursion.
+                </li>
+                <li>
+                    <strong>Subproblem:</strong> A smaller version of the main problem used to build the final solution.
+                </li>
+                <li>
+                    <strong>1-Dimensional DP:</strong> DP using a one-dimensional array to track results of subproblems with one variable.
+                </li>
+                <li>
+                    <strong>2-Dimensional DP:</strong> DP using a two-dimensional array for subproblems with two variables.
+                </li>
+                <li>
+                    <strong>Top-down DP:</strong> Recursion with caching (memoization) as results are computed.
+                </li>
+                <li>
+                    <strong>Bottom-up DP:</strong> Iteratively builds solutions from base cases up.
+                </li>
+                <li>
+                    <strong>Memoization:</strong> Caching results of function calls to avoid re-computation.
                 </li>
             </ul>
 
-            <h2>When to Use Dynamic Programming</h2>
-            <ul>
-                <li>When subproblems overlap - the same subproblem appears multiple times</li>
-                <li>When you can define a recurrence relation - a way to build larger solutions from smaller ones</li>
-            </ul>
+            <h2>Steps for DP:</h2>
+            <ol>
+                <li>Start With a Small Example</li>
+                <li>Define the Subproblem</li>
+                <li>Define the Recursive Step</li>
+                <li>Define the Base Cases</li>
+                <li>Try Writing It in Code, Analyze Space and Time Complexity</li>
+                <li>Optimize</li>
+            </ol>
         </section>
 
         <section class="strategy-overview">
