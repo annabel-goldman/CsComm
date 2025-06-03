@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Programming - CS Algorithm Blog</title>
+    <link rel="stylesheet" href="styles/base/main.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/modal.css">
+    <link rel="stylesheet" href="styles/components/option-card.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/utilities/spacing.css">
+    <link rel="stylesheet" href="styles/components/strategy-card.css">
+    <link rel="stylesheet" href="styles/components/activity-selection.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="nav-content">
+                <a href="index.html" class="logo">CS Algorithm Blog</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Problem Styles</button>
+                        <div class="dropdown-content">
+                            <a href="recursion.html">Recursion</a>
+                            <a href="greedy.html">Greedy</a>
+                            <a href="dp.html">Dynamic Programming</a>
+                        </div>
+                    </div>
+                    <a href="/strategy-toolbox.html">Strategy Toolbox</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero mb-1">
+            <h1>Dynamic Programming</h1>
+            <p class="subtitle">Store and reuse solutions to overlapping subproblems</p>
+        </section>
+
+        <section class="problem-description mb-2">
+            <h2>What is Dynamic Programming?</h2>
+            <p>Dynamic Programming (DP) is about solving problems with overlapping subproblems by saving your work. Instead of solving the same subproblems repeatedly, we store their solutions and reuse them when needed.</p>
+            
+            <h2>Key Concepts</h2>
+            <ul>
+                <li>
+                    <strong>Top-down DP:</strong> Uses recursion with memoization to store solutions as we compute them
+                </li>
+                <li>
+                    <strong>Bottom-up DP:</strong> Builds solutions iteratively using tabulation, starting from the base cases
+                </li>
+            </ul>
+
+            <h2>When to Use Dynamic Programming</h2>
+            <ul>
+                <li>When subproblems overlap - the same subproblem appears multiple times</li>
+                <li>When you can define a recurrence relation - a way to build larger solutions from smaller ones</li>
+            </ul>
+        </section>
+
+        <section class="strategy-overview">
+            <div class="strategy-card mb-2">
+                <h3>Climbing Stairs</h3>
+                <p>Count the number of distinct ways to climb n stairs, taking either 1 or 2 steps at a time.</p>
+                <div class="problem-list">
+                    <a href="climbing-stairs.html" class="btn btn-primary read-more">Try Problem</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center;">&copy; 2024 CS Algorithm Blog. Created by Annie.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="scripts/utils/dom.js"></script>
+    <script type="module" src="scripts/components/modal.js"></script>
+    <script type="module" src="scripts/components/option-card.js"></script>
+</body>
+</html> 

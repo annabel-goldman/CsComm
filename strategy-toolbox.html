@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS Algorithm Blog</title>
+    <title>Strategy Toolbox - CS Algorithm Blog</title>
     <link rel="stylesheet" href="styles/base/main.css">
     <link rel="stylesheet" href="styles/components/header.css">
     <link rel="stylesheet" href="styles/components/strategy-card.css">
@@ -33,34 +33,40 @@
     </header>
 
     <main class="container">
-        <section id="home" class="hero mb-3">
-            <h1>Master CS Algorithms</h1>
-            <p class="subtitle">Learn to solve complex problems with clear, approachable strategies</p>
+        <section class="hero mb-3">
+            <h1>My Go-To Strategies for Tackling Algorithm Problems</h1>
+            <p class="subtitle">A portable mental framework you can bring to any new problem</p>
         </section>
 
-        <section id="strategies" class="strategy-overview">
-            <div class="strategy-card mb-2" id="recursion">
-                <h3>Recursion</h3>
-                <p>Break down complex problems into smaller, similar subproblems</p>
-                <div class="problem-list">
-                    <a href="/recursion.html" class="btn btn-primary read-more">Explore Recursion Problems →</a>
-                </div>
+        <section class="strategy-overview">
+            <div class="strategy-card mb-2">
+                <h3>Start Small</h3>
+                <p>Try solving with a tiny input by hand. This helps build intuition and reveals patterns.</p>
             </div>
 
-            <div class="strategy-card mb-2" id="greedy">
-                <h3>Greedy Algorithms</h3>
-                <p>Make locally optimal choices to find global solutions</p>
-                <div class="problem-list">
-                    <a href="/greedy.html" class="btn btn-primary read-more">Explore Greedy Problems →</a>
-                </div>
+            <div class="strategy-card mb-2">
+                <h3>Base Case Analysis</h3>
+                <p>Think through the simplest version of the problem - what's the base case?</p>
             </div>
 
-            <div class="strategy-card mb-2" id="dp">
-                <h3>Dynamic Programming</h3>
-                <p>Store and reuse solutions to overlapping subproblems</p>
-                <div class="problem-list">
-                    <a href="/dp.html" class="btn btn-primary read-more">Explore DP Problems →</a>
-                </div>
+            <div class="strategy-card mb-2">
+                <h3>Recursive Thinking</h3>
+                <p>How do you reduce a big problem to a smaller one? Break it down step by step.</p>
+            </div>
+
+            <div class="strategy-card mb-2">
+                <h3>Map Your Search Space</h3>
+                <p>What choices do you have at each step? Visualize the decision tree.</p>
+            </div>
+
+            <div class="strategy-card mb-2">
+                <h3>Identify Waste</h3>
+                <p>What work are you repeating or redoing? Look for opportunities to optimize.</p>
+            </div>
+
+            <div class="strategy-card mb-2">
+                <h3>Stay Calm</h3>
+                <p>Don't panic - even if you don't see the full solution, partial ideas often reveal patterns.</p>
             </div>
         </section>
     </main>
@@ -72,5 +78,6 @@
     </footer>
 
     <script type="module" src="scripts/utils/dom.js"></script>
+    <script type="module" src="scripts/components/strategy-card.js"></script>
 </body>
 </html> 

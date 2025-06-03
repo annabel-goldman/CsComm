@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greedy Algorithms - CS Algorithm Blog</title>
+    <link rel="stylesheet" href="styles/base/main.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/modal.css">
+    <link rel="stylesheet" href="styles/components/option-card.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/utilities/spacing.css">
+    <link rel="stylesheet" href="styles/components/strategy-card.css">
+    <link rel="stylesheet" href="styles/components/activity-selection.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="nav-content">
+                <a href="index.html" class="logo">CS Algorithm Blog</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Problem Styles</button>
+                        <div class="dropdown-content">
+                            <a href="recursion.html">Recursion</a>
+                            <a href="greedy.html">Greedy</a>
+                            <a href="dp.html">Dynamic Programming</a>
+                        </div>
+                    </div>
+                    <a href="/strategy-toolbox.html">Strategy Toolbox</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero mb-1">
+            <h1>Greedy Algorithms</h1>
+            <p class="subtitle">Make locally optimal choices to find global solutions</p>
+        </section>
+
+        <section class="problem-description mb-2">
+            <h2>What Makes an Algorithm Greedy?</h2>
+            <p>Greedy algorithms are a powerful problem-solving approach that makes the best choice at each step, hoping that these local choices will lead to a globally optimal solution. While this might seem counterintuitive, there are many problems where making the locally optimal choice at each step actually leads to the best overall solution.</p>
+            
+            <h2>Key Concepts</h2>
+            <ul>
+                <li>
+                    <strong>Local Optimality:</strong> Greedy algorithms build up a solution by choosing the best local option at each step.
+                </li>
+                <li>
+                    <strong>Global Optimality:</strong> For a greedy algorithm to be valid, local optimality must lead to global optimality.
+                </li>
+            </ul>
+        </section>
+
+        <section class="strategy-overview">
+            <div class="strategy-card mb-2">
+                <h3>Activity Selection</h3>
+                <p>Select the maximum number of non-overlapping activities.</p>
+                <div class="problem-list">
+                    <a href="activity-selection.html" class="btn btn-primary read-more">Try Problem</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center;">&copy; 2024 CS Algorithm Blog. Created by Annie.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="scripts/utils/dom.js"></script>
+    <script type="module" src="scripts/components/modal.js"></script>
+    <script type="module" src="scripts/components/option-card.js"></script>
+</body>
+</html> 

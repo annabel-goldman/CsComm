@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subset Sum Problem - CS Algorithm Blog</title>
+    <link rel="stylesheet" href="styles/base/main.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/modal.css">
+    <link rel="stylesheet" href="styles/components/option-card.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/components/activity-selection.css">
+    <link rel="stylesheet" href="styles/components/strategy-card.css">
+    <link rel="stylesheet" href="styles/utilities/spacing.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="nav-content">
+                <a href="/index.html" class="logo">CS Algorithm Blog</a>
+                <div class="nav-links">
+                    <a href="/index.html">Home</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Problem Styles</button>
+                        <div class="dropdown-content">
+                            <a href="/recursion.html">Recursion</a>
+                            <a href="/greedy.html">Greedy</a>
+                            <a href="/dp.html">Dynamic Programming</a>
+                        </div>
+                    </div>
+                    <a href="/strategy-toolbox.html">Strategy Toolbox</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="strategy-intro">
+            <h1>Subset Sum Problem</h1>
+            <p class="subtitle">Learn how to solve the Subset Sum Problem using recursive thinking. This is a classic problem that helps us understand how to break down complex problems into smaller, similar subproblems.</p>
+        </section>
+
+        <section class="problem-description">
+            <h2>The Problem</h2>
+            <p>You're given a list of integers and a target sum. Your goal is to figure out whether there is a subset of these numbers that adds up exactly to the target.</p>
+        </section>
+
+        <section class="example">
+            <h2>Step 1: Start With a Small Example</h2>
+            <div class="activity-list">
+                <p>Numbers: [3, 1, 5, 9]</p>
+                <p>Target Sum: 6</p>
+            </div>
+            <p>Before jumping to code, take a second and just try to solve it with your intuition: Is there a subset that adds up to 6?</p>
+            <p>You might try:</p>
+            <ul>
+                <li>3 + 1 = 4 doesn't work</li>
+                <li>1 + 5 = 6 yes! One and five together make the target sum</li>
+            </ul>
+            <p>Great! You found a working subset. But how did you find it? Again let's remember that algorithms are about being able to repeat a series of actions to reliably find the optimal solution for every input.</p>
+        </section>
+
+        <section class="problem-description">
+            <h2>Let's Break Your Intuition Down</h2>
+            <p>When you tried 1 + 5, you were making choices about which numbers to include or skip.</p>
+            <p>How could you repetitively make that choice?</p>
+        </section>
+
+        <section class="example">
+            <h2>Step 2: Turn the Idea Into a Repeatable Action (Recursive Call)</h2>
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Recursive Call</h3>
+                    <p class="option-summary">At each step, you decide:</p>
+                    <button class="show-analysis-btn">Show Details</button>
+                    <div class="option-details" style="display: none;">
+                        <ul>
+                            <li>Include the current number, and subtract it from the target</li>
+                            <li>Skip it, and leave the target as is</li>
+                            <li>So subset_sum(i - 1, target) or subset_sum(i - 1, target - nums[i])</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p>Recursion works by solving smaller versions of the same problem.</p>
+            <p>Ask yourself:</p>
+            <ul>
+                <li>Is it the problem easier with fewer numbers?</li>
+                <li>What happens when you're down to one number?</li>
+                <li>At each step, you make a choice and move one step closer to the base case.</li>
+            </ul>
+        </section>
+
+        <section class="example">
+            <h2>Step 3: Stop When You Hit the Smallest Case (Base Case)</h2>
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Base case</h3>
+                    <p class="option-summary">Every recursive function needs a base case: a condition that stops the recursion.</p>
+                    <button class="show-analysis-btn">Show Details</button>
+                    <div class="option-details" style="display: none;">
+                        <ul>
+                            <li>If the target hits 0: success!</li>
+                            <li>If you run out of numbers: failure (unless that last number equals the target)</li>
+                        </ul>
+                        <pre><code>if target == 0:
+    return True
+if i == 0:
+    return (nums[0] == target)</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="example">
+            <h2>Step 4: Try Writing It in Code, Analyze Space and Time Complexity</h2>
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Python Implementation</h3>
+                    <button class="show-analysis-btn">Show Code</button>
+                    <div class="option-details" style="display: none;">
+                        <pre><code>def subset_sum(i, target):
+    if target == 0: 
+        return True
+    if i == 0: 
+        return (nums[0] == target)
+    return subset_sum(i-1, target) or subset_sum(i-1, target - nums[i])</code></pre>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Complexity Analysis</h3>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <ul>
+                            <li>Time complexity: O(2^n)</li>
+                            <li>Space complexity: O(n)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p>Note: this section will be supplemented with video</p>
+        </section>
+
+        <section class="example">
+            <h2>Step 5: Optimize (With Memoization)</h2>
+            <p>Let's say you already solved subset_sum(3, 4) earlier.</p>
+            <p>If you hit that again, do you really need to solve it again? Nope.</p>
+            <p>You can cache the result the first time and reuse it later.</p>
+            <p>This strategy is called memoization (but you don't need the term to use the idea)</p>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Python Implementation with Memoization</h3>
+                    <button class="show-analysis-btn">Show Code</button>
+                    <div class="option-details" style="display: none;">
+                        <pre><code>memo = {}
+def subset_sum(i, target):
+    if (i, target) in memo:
+        return memo[(i, target)]
+    if target == 0:
+        return True
+    if i == 0:
+        return nums[0] == target
+    result = subset_sum(i - 1, target) or subset_sum(i - 1, target - nums[i])
+    memo[(i, target)] = result
+    return result</code></pre>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Optimized Complexity Analysis</h3>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <ul>
+                            <li>Time complexity: O(n × target)</li>
+                            <li>Space complexity: O(n × target)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p>Note: this section will be supplemented with video</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center;">&copy; 2024 CS Algorithm Blog. Created by Annie.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="scripts/utils/dom.js"></script>
+    <script type="module" src="scripts/components/modal.js"></script>
+    <script type="module" src="scripts/components/option-card.js"></script>
+</body>
+</html> 

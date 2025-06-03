@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Selection Problem - CS Algorithm Blog</title>
+    <link rel="stylesheet" href="styles/base/main.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/modal.css">
+    <link rel="stylesheet" href="styles/components/option-card.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/components/activity-selection.css">
+    <link rel="stylesheet" href="styles/components/strategy-card.css">
+    <link rel="stylesheet" href="styles/utilities/spacing.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="nav-content">
+                <a href="/index.html" class="logo">CS Algorithm Blog</a>
+                <div class="nav-links">
+                    <a href="/index.html">Home</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Problem Styles</button>
+                        <div class="dropdown-content">
+                            <a href="/recursion.html">Recursion</a>
+                            <a href="/greedy.html">Greedy</a>
+                            <a href="/dp.html">Dynamic Programming</a>
+                        </div>
+                    </div>
+                    <a href="/strategy-toolbox.html">Strategy Toolbox</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="strategy-intro">
+            <h1>Solving the Activity Selection Problem from Scratch (Using Greedy Thinking)</h1>
+            <p class="subtitle">Learn how to solve the Activity Selection Problem using greedy algorithms. This is a classic problem that helps us understand how to make optimal choices when scheduling activities.</p>
+        </section>
+
+        <section class="problem-description">
+            <h2>The Problem</h2>
+            <p>You're given a list of activities. Each one has a start and end time. You want to attend as many as possible, but none of them can overlap. If one event ends at 11:00, the next one has to start at or after 11:00. Your goal is to come up with a strategy that picks the maximum number of non-overlapping events.</p>
+        </section>
+
+        <section class="example">
+            <h2>Step 1: Start With a Small Example</h2>
+            <div class="activity-list">
+                <p>Swim practice: 10:00 AM – 11:00 AM</p>
+                <p>Pottery class: 10:20 AM – 11:25 AM</p>
+                <p>Baking workshop: 11:00 AM – 12:00 PM</p>
+            </div>
+
+            <p>Take a second and ask yourself: Which events would you choose if you wanted to fit in as many as possible? Try each of these options on your own and then click to get more information.</p>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Option 1: Start with swim practice</h3>
+                    <p class="option-summary">Begin with the earliest starting activity and see what fits next.</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>It ends at 11:00, so next you could do baking (which starts at 11:00)</li>
+                            <li>Pottery is out, it overlaps with swim</li>
+                        </ul>
+                        <p>2 Final activities: Swim, Baking</p>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Option 2: Start with pottery</h3>
+                    <p class="option-summary">Try starting with the middle activity and see what works.</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>Pottery overlaps with both swim and baking</li>
+                            <li>So you can't take anything else</li>
+                        </ul>
+                        <p>1 Final activity: Pottery</p>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Option 3: Start with baking</h3>
+                    <p class="option-summary">Begin with the latest starting activity and work backwards.</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>Swim ends at 11:00, which is when baking starts</li>
+                            <li>That's a tight fit but allowed</li>
+                        </ul>
+                        <p>2 Final activities: Swim, Baking</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>So far, the best outcome includes Swim and Baking. But we found that using our own intuition. Remember algorithms are all about being able to reliably repeat a series of actions to find the correct solution for every input. How can we turn your instincts into a reusable strategy?</p>
+        </section>
+
+        <section class="example">
+            <h2>Step 2: Test Different Local Choices</h2>
+            <div class="activity-list">
+                <p>Guest lecture: 9:00 AM – 1:00 PM</p>
+                <p>Speed networking: 9:30 AM – 9:45 AM</p>
+                <p>Quick coding session: 10:00 AM – 10:15 AM</p>
+            </div>
+
+            <p>First: try solving it yourself. What's the most events you can attend from this list?</p>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Option 1: Pick the event that starts earliest</h3>
+                    <p class="option-summary">So you go with a Guest lecture at 9:00 AM. It goes until 1:00 PM.</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>Now look at the other two:</li>
+                            <li>Speed networking starts at 9:30 so it overlaps with Guest lecture and we can't add it</li>
+                            <li>Quick coding session starts at 10:00 it also overlaps with Guest lecture so we can't add it</li>
+                        </ul>
+                        <p>Total events attended: 1</p>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Option 2: Pick the shortest event first</h3>
+                    <p class="option-summary">Shortest event = Speed networking (9:45 - 9:30 = 15 minutes)</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>You pick that first. It ends at 9:45 AM.</li>
+                            <li>Guest lecture started at 9:00 this overlaps so we can't add it</li>
+                            <li>Quick coding session starts at 10:00 so you can attend</li>
+                        </ul>
+                        <p>Total events attended: 2</p>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Option 3: Pick the event that ends earliest</h3>
+                    <p class="option-summary">This time, try choosing the event that ends the soonest Speed networking again (ends 9:45)</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>Now look for the next event that starts after 9:45. That would be a Quick coding session, which starts at 10:00. Great, add it.</li>
+                            <li>Guest lecture started way earlier and overlapped, so we skip it.</li>
+                        </ul>
+                        <p>Total events attended: 2</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Hmm how can we be sure which option is best when two ways of selecting the local maximum lead to the same global result? Will both options work the same every time? When multiple local strategies happen to produce the same global result, it's easy to assume they're all valid. This is exactly the kind of moment when it helps to go back to basics. Revisit Step 1, try another example, and see if the patterns still hold. The more edge cases you test, the clearer the winning strategy becomes.</p>
+        </section>
+
+        <section class="example">
+            <h2>Let's test one more complex example</h2>
+            <div class="activity-list">
+                <p>Event A: 9:00 – 11:00</p>
+                <p>Event B: 11:00 – 1:00</p>
+                <p>Event C: 1:00 – 3:00</p>
+                <p>Event D: 3:00 – 4:00</p>
+                <p>Event E: 10:50 – 11:10</p>
+            </div>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Option 1: Pick the event that starts earliest</h3>
+                    <p class="option-summary">You go with Event A at 9:00. It ends at 11:00.</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>Now check the others:</li>
+                            <li>Event E starts at 10:50 this overlaps so you don't schedule it</li>
+                            <li>Event B starts at 11:00 this fits so you do schedule it</li>
+                            <li>Event C starts at 1:00 this event fits so you schedule it</li>
+                            <li>Event D starts at 3:00 this also fits so you schedule it</li>
+                        </ul>
+                        <p>Total events attended: 4</p>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Option 2: Pick the shortest event first</h3>
+                    <p class="option-summary">Shortest event = Event E (10:50–11:10)</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>You pick that first. It ends at 11:10.</li>
+                            <li>Now check the others:</li>
+                            <li>Event A: started at 9:00 overlaps, so we don't schedule it</li>
+                            <li>Event B: starts at 11:00 overlaps, so we don't schedule it</li>
+                            <li>Event C: starts at 1:00 this event fits so you schedule it</li>
+                            <li>Event D: starts at 3:00 this also fits so you schedule it</li>
+                        </ul>
+                        <p>Total events attended: 3</p>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Option 3: Pick the event that ends earliest</h3>
+                    <p class="option-summary">You start with the event that ends the soonest: Event A (ends 11:00)</p>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Step-by-Step Analysis:</h4>
+                        <ul>
+                            <li>Now check the others:</li>
+                            <li>Event E starts at 10:50 overlaps, so we don't schedule it</li>
+                            <li>Event B starts at 11:00 this event fits so you schedule it</li>
+                            <li>Event C starts at 1:00 this also fits so you schedule it</li>
+                            <li>Event D starts at 3:00 this also fits so you schedule it</li>
+                        </ul>
+                        <p>Total events attended: 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Now that we have walked through some examples and strategies, which seems the most promising?</p>
+        </section>
+
+        <section class="strategy-section">
+            <button class="strategy-button" id="strategyButton">
+                <h2>The Strategy That Actually Works</h2>
+            </button>
+            <div class="strategy-details" style="display: none;">
+                <p>Idea 3 because it works by always freeing up your schedule as soon as possible, you give yourself the most chances to attend more things.</p>
+            </div>
+        </section>
+
+        <section class="code-section">
+            <h2>Step 3: Try Writing It in Code, Analyze Space and Time Complexity</h2>
+            <div class="code-card">
+                <h3>Python Implementation</h3>
+                <pre><code>def activity_selection(activities):
+    activities.sort(key=lambda x: x[1])
+    selected = []
+    current_end = 0
+    for start, end in activities:
+        if start >= current_end:
+            selected.append((start, end))
+            current_end = end
+    return selected</code></pre>
+            </div>
+
+            <div class="complexity-cards">
+                <div class="complexity-card">
+                    <h3>Time Complexity</h3>
+                    <p>O(n log n)</p>
+                </div>
+                <div class="complexity-card">
+                    <h3>Space Complexity</h3>
+                    <p>O(n)</p>
+                </div>
+            </div>
+
+            <p class="note">Note: this section will be supplemented with video</p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center;">&copy; 2024 CS Algorithm Blog. Created by Annie.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="scripts/utils/dom.js"></script>
+    <script type="module" src="scripts/components/modal.js"></script>
+    <script type="module" src="scripts/components/option-card.js"></script>
+</body>
+</html> 

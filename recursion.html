@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursion - CS Algorithm Blog</title>
+    <link rel="stylesheet" href="styles/base/main.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/modal.css">
+    <link rel="stylesheet" href="styles/components/option-card.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/utilities/spacing.css">
+    <link rel="stylesheet" href="styles/components/strategy-card.css">
+    <link rel="stylesheet" href="styles/components/activity-selection.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="nav-content">
+                <a href="index.html" class="logo">CS Algorithm Blog</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Problem Styles</button>
+                        <div class="dropdown-content">
+                            <a href="recursion.html">Recursion</a>
+                            <a href="greedy.html">Greedy</a>
+                            <a href="dp.html">Dynamic Programming</a>
+                        </div>
+                    </div>
+                    <a href="/strategy-toolbox.html">Strategy Toolbox</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero mb-1">
+            <h1>Recursion</h1>
+            <p class="subtitle">Break down complex problems into smaller, similar subproblems</p>
+        </section>
+
+        <section class="problem-description mb-2">
+            <h2>What is Recursion?</h2>
+            <p>Recursion is when a function solves a problem by calling itself on smaller subproblems. It's like solving a puzzle by breaking it into smaller pieces that follow the same pattern.</p>
+            
+            <h2>Key Concepts</h2>
+            <ul>
+                <li>
+                    <strong>Base Case:</strong> The stopping condition where the recursion ends. This is crucial to prevent infinite recursion.
+                </li>
+                <li>
+                    <strong>Recursive Call:</strong> Where the function calls itself with a smaller or simpler version of the problem.
+                </li>
+            </ul>
+
+            <h2>When to Use Recursion</h2>
+            <ul>
+                <li>The problem breaks naturally into smaller instances of the same problem</li>
+                <li>There are decisions at each step that follow the same pattern</li>
+            </ul>
+        </section>
+
+        <section class="strategy-overview">
+            <div class="strategy-card mb-2">
+                <h3>Subset Sum Problem</h3>
+                <p>Find if there exists a subset of numbers that adds up to a target sum using recursive thinking.</p>
+                <div class="problem-list">
+                    <a href="subset-sum.html" class="btn btn-primary read-more">Try Problem</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center;">&copy; 2024 CS Algorithm Blog. Created by Annie.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="scripts/utils/dom.js"></script>
+    <script type="module" src="scripts/components/modal.js"></script>
+    <script type="module" src="scripts/components/option-card.js"></script>
+</body>
+</html> 

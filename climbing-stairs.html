@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climbing Stairs Problem - CS Algorithm Blog</title>
+    <link rel="stylesheet" href="styles/base/main.css">
+    <link rel="stylesheet" href="styles/components/header.css">
+    <link rel="stylesheet" href="styles/components/modal.css">
+    <link rel="stylesheet" href="styles/components/option-card.css">
+    <link rel="stylesheet" href="styles/components/footer.css">
+    <link rel="stylesheet" href="styles/components/activity-selection.css">
+    <link rel="stylesheet" href="styles/components/strategy-card.css">
+    <link rel="stylesheet" href="styles/utilities/spacing.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <nav>
+            <div class="nav-content">
+                <a href="/index.html" class="logo">CS Algorithm Blog</a>
+                <div class="nav-links">
+                    <a href="/index.html">Home</a>
+                    <div class="dropdown">
+                        <button class="dropdown-btn">Problem Styles</button>
+                        <div class="dropdown-content">
+                            <a href="/recursion.html">Recursion</a>
+                            <a href="/greedy.html">Greedy</a>
+                            <a href="/dp.html">Dynamic Programming</a>
+                        </div>
+                    </div>
+                    <a href="/strategy-toolbox.html">Strategy Toolbox</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="strategy-intro">
+            <h1>Climbing Stairs Problem</h1>
+            <p class="subtitle">Learn how to solve the Climbing Stairs Problem using dynamic programming. This is a classic problem that teaches us how to optimize space complexity while maintaining efficiency.</p>
+        </section>
+
+        <section class="problem-description">
+            <h2>The Problem</h2>
+            <p>You're climbing a staircase with n steps. Each time, you can take 1 or 2 steps. Your goal is to figure out how many distinct ways you can reach the top.</p>
+        </section>
+
+        <section class="example">
+            <h2>Step 1: Start With a Small Example</h2>
+            <div class="activity-list">
+                <p>If n = 5 how many possible paths are there to get to the top?</p>
+            </div>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Start by listing the possibilities manually</h3>
+                    <button class="show-analysis-btn">Show All Paths</button>
+                    <div class="option-details" style="display: none;">
+                        <h4>Here are all the valid paths:</h4>
+                        <ul>
+                            <li>1 + 1 + 1 + 1 + 1</li>
+                            <li>1 + 1 + 1 + 2</li>
+                            <li>1 + 1 + 2 + 1</li>
+                            <li>1 + 2 + 1 + 1</li>
+                            <li>2 + 1 + 1 + 1</li>
+                            <li>2 + 2 + 1</li>
+                            <li>2 + 1 + 2</li>
+                            <li>1 + 2 + 2</li>
+                        </ul>
+                        <p>Total: 8 ways</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="example">
+            <h2>Step 2: Define the Subproblem</h2>
+            <p>Let's think about how you arrive at each step.</p>
+            <p>To get to step n, where could you have come from?</p>
+            <p>Could you solve the problem if you already knew how many ways there were to get to step n - 1? What about step n - 2?</p>
+            <p>That's the key insight: You build the solution for n using the solutions to smaller subproblems.</p>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Subproblem</h3>
+                    <button class="show-analysis-btn">Show Details</button>
+                    <div class="option-details" style="display: none;">
+                        <p>How many distinct ways can I reach the nth stair if I can take either 1 or two steps each time?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="example">
+            <h2>Step 3: Define the Recursive Step</h2>
+            <p>Think through what step you can come from to land on step n.</p>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Recursive Step</h3>
+                    <button class="show-analysis-btn">Show Details</button>
+                    <div class="option-details" style="display: none;">
+                        <p>To reach step n, you either:</p>
+                        <ul>
+                            <li>Came from step n - 1 (1 step jump)</li>
+                            <li>Or from step n - 2 (2 step jump)</li>
+                        </ul>
+                        <p>ways[n] = ways[n - 1] + ways[n - 2]</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="example">
+            <h2>Step 4: Define the Base Cases</h2>
+            <p>Every recursive or DP solution needs base cases to stop the recursion or to initialize your table. What are the smallest versions of this problem? How many ways can we get to those stairs?</p>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Base Cases</h3>
+                    <button class="show-analysis-btn">Show Details</button>
+                    <div class="option-details" style="display: none;">
+                        <ul>
+                            <li>If n = 1: only 1 way (take one step)</li>
+                            <li>If n = 2: 2 ways (1+1 or just 2)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="example">
+            <h2>Step 5: Try Writing It in Code, Analyze Space and Time Complexity</h2>
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Python Implementation</h3>
+                    <button class="show-analysis-btn">Show Code</button>
+                    <div class="option-details" style="display: none;">
+                        <pre><code>def climb_stairs(n):
+    if n <= 2:
+        return n
+    dp = [0] * (n + 1)
+    dp[1] = 1
+    dp[2] = 2
+    for i in range(3, n + 1): 
+        dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n]</code></pre>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Complexity Analysis</h3>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <ul>
+                            <li>Time complexity: O(n)</li>
+                            <li>Space complexity: O(n)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p>Note: this section will be supplemented with video</p>
+        </section>
+
+        <section class="example">
+            <h2>Step 6: Optimize</h2>
+            <p>Think back to what we learned in recursion about memoization or storing past values so we can quickly calculate new values. What else can be wasteful in our code?</p>
+            <p>Hint: Space optimization means rewriting your solution so it uses less memory, often by avoiding data structures you don't actually need.</p>
+
+            <div class="option-cards">
+                <div class="option-card">
+                    <h3 class="option-title">Optimization</h3>
+                    <button class="show-analysis-btn">Show Analysis</button>
+                    <div class="option-details" style="display: none;">
+                        <p>We're storing the entire dp array, but we only ever use:</p>
+                        <ul>
+                            <li>dp[i - 1]</li>
+                            <li>dp[i - 2]</li>
+                        </ul>
+                        <p>Once we've used dp[i - 3], we don't need it anymore. So instead of keeping an array, we can just keep two variables and update them as we go.</p>
+                    </div>
+                </div>
+
+                <div class="option-card">
+                    <h3 class="option-title">Python Implementation Optimized</h3>
+                    <button class="show-analysis-btn">Show Code</button>
+                    <div class="option-details" style="display: none;">
+                        <pre><code>def climb_stairs_optimized(n):
+    if n <= 2:
+        return n
+    prev1, prev2 = 1, 2
+    for _ in range(3, n + 1):
+        current = prev1 + prev2
+        prev1, prev2 = prev2, current
+    return prev2</code></pre>
+                        <p>Time complexity: O(n)</p>
+                        <p>Space complexity: O(1) Better!!</p>
+                    </div>
+                </div>
+            </div>
+            <p>Note: this section will be supplemented with video</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p style="text-align: center;">&copy; 2024 CS Algorithm Blog. Created by Annie.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="scripts/utils/dom.js"></script>
+    <script type="module" src="scripts/components/modal.js"></script>
+    <script type="module" src="scripts/components/option-card.js"></script>
+</body>
+</html> 
