@@ -97,6 +97,8 @@ export class Modal {
             this.modalBody.appendChild(settings.content);
         }
 
+        // Add animation class
+        this.modalContent.classList.add('modal-in');
         this.modal.style.display = 'block';
         this.isOpen = true;
         document.body.style.overflow = 'hidden';
@@ -111,6 +113,8 @@ export class Modal {
             throw new Error('Modal not initialized');
         }
 
+        // Remove animation class
+        this.modalContent.classList.remove('modal-in');
         this.modal.style.display = 'none';
         this.isOpen = false;
         document.body.style.overflow = '';

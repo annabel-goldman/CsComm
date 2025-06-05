@@ -4,7 +4,7 @@ import { Modal } from './modal.js';
 /**
  * Strategy Card Component
  * @class
- * @description Handles strategy card interactions and animations
+ * @description Handles strategy card interactions and modal functionality
  */
 export class StrategyCard {
     /**
@@ -38,25 +38,14 @@ export class StrategyCard {
      */
     setupCards() {
         this.cards.forEach(card => {
-            this.setupCardInteractions(card);
+            const readMoreLink = card.querySelector('.read-more');
+            if (readMoreLink) {
+                readMoreLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.handleReadMoreClick(card, readMoreLink.href);
+                });
+            }
         });
-    }
-
-    /**
-     * Set up card interactions
-     * @param {HTMLElement} card - The strategy card element
-     * @private
-     */
-    setupCardInteractions(card) {
-        // Add hover effect
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-4px)';
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
-
     }
 
     /**

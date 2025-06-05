@@ -6,12 +6,8 @@
     <title>Activity Selection Problem - CS Algorithm Blog</title>
     <link rel="stylesheet" href="styles/base/main.css">
     <link rel="stylesheet" href="styles/components/header.css">
-    <link rel="stylesheet" href="styles/components/modal.css">
-    <link rel="stylesheet" href="styles/components/option-card.css">
     <link rel="stylesheet" href="styles/components/footer.css">
-    <link rel="stylesheet" href="styles/components/activity-selection.css">
-    <link rel="stylesheet" href="styles/components/strategy-card.css">
-    <link rel="stylesheet" href="styles/utilities/spacing.css">
+    <link rel="stylesheet" href="styles/components/article.css">
 </head>
 <body>
     <header class="sticky-header">
@@ -40,7 +36,7 @@
             <p class="subtitle">Learn how to solve the Activity Selection Problem using greedy algorithms. This is a classic problem that helps us understand how to make optimal choices when scheduling activities.</p>
         </section>
 
-        <section class="problem-description">
+        <section class="example">
             <h2>The Problem</h2>
             <p>You're given a list of activities. Each one has a start and end time. You want to attend as many as possible, but none of them can overlap. If one event ends at 11:00, the next one has to start at or after 11:00. Your goal is to come up with a strategy that picks the maximum number of non-overlapping events.</p>
         </section>
@@ -226,18 +222,10 @@
             </div>
 
             <p>Now that we have walked through some examples and strategies, which seems the most promising?</p>
+            <p>Idea 3 because it works by always freeing up your schedule as soon as possible, you give yourself the most chances to attend more things.</p>
         </section>
 
-        <section class="strategy-section">
-            <button class="strategy-button" id="strategyButton">
-                <h2>The Strategy That Actually Works</h2>
-            </button>
-            <div class="strategy-details" style="display: none;">
-                <p>Idea 3 because it works by always freeing up your schedule as soon as possible, you give yourself the most chances to attend more things.</p>
-            </div>
-        </section>
-
-        <section class="code-section">
+        <section class="example">
             <h2>Step 3: Try Writing It in Code, Analyze Space and Time Complexity</h2>
 
             <div class="video-container">

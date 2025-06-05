@@ -55,6 +55,15 @@ export class OptionCard {
         const content = this.details.cloneNode(true);
         content.style.display = 'block';
         
+        // Add proper classes for styling
+        content.classList.add('modal-body');
+        
+        // Style code blocks if present
+        const codeBlocks = content.querySelectorAll('pre');
+        codeBlocks.forEach(block => {
+            block.classList.add('modal-content');
+        });
+        
         this.modal.open({
             title: this.title.textContent,
             content: content
@@ -81,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (strategyButton && window.sharedModal) {
         strategyButton.addEventListener('click', function() {
             const content = document.createElement('div');
+            content.classList.add('modal-body');
             content.innerHTML = `
                 <h3>What is the runtime of the fully memoized solution?</h3>
                 <h4>Explanation:</h4>
