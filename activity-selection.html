@@ -239,31 +239,14 @@
 
         <section class="code-section">
             <h2>Step 3: Try Writing It in Code, Analyze Space and Time Complexity</h2>
-            <div class="code-card">
-                <h3>Python Implementation</h3>
-                <pre><code>def activity_selection(activities):
-    activities.sort(key=lambda x: x[1])
-    selected = []
-    current_end = 0
-    for start, end in activities:
-        if start >= current_end:
-            selected.append((start, end))
-            current_end = end
-    return selected</code></pre>
+
+            <div class="video-container">
+                <video controls>
+                    <source src="assets/activity-selection-complexity.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
 
-            <div class="complexity-cards">
-                <div class="complexity-card">
-                    <h3>Time Complexity</h3>
-                    <p>O(n log n)</p>
-                </div>
-                <div class="complexity-card">
-                    <h3>Space Complexity</h3>
-                    <p>O(n)</p>
-                </div>
-            </div>
-
-            <p class="note">Note: this section will be supplemented with video</p>
         </section>
 
     </main>
