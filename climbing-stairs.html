@@ -131,35 +131,12 @@
 
         <section class="example">
             <h2>Step 5: Try Writing It in Code, Analyze Space and Time Complexity</h2>
-            <div class="option-cards">
-                <div class="option-card">
-                    <h3 class="option-title">Python Implementation</h3>
-                    <button class="show-analysis-btn">Show Code</button>
-                    <div class="option-details" style="display: none;">
-                        <pre><code>def climb_stairs(n):
-    if n <= 2:
-        return n
-    dp = [0] * (n + 1)
-    dp[1] = 1
-    dp[2] = 2
-    for i in range(3, n + 1): 
-        dp[i] = dp[i - 1] + dp[i - 2]
-    return dp[n]</code></pre>
-                    </div>
-                </div>
-
-                <div class="option-card">
-                    <h3 class="option-title">Complexity Analysis</h3>
-                    <button class="show-analysis-btn">Show Analysis</button>
-                    <div class="option-details" style="display: none;">
-                        <ul>
-                            <li>Time complexity: O(n)</li>
-                            <li>Space complexity: O(n)</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="video-container">
+                <video controls>
+                    <source src="assets/climb-stairs-1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-            <p>Note: this section will be supplemented with video</p>
         </section>
 
         <section class="example">
@@ -180,25 +157,13 @@
                         <p>Once we've used dp[i - 3], we don't need it anymore. So instead of keeping an array, we can just keep two variables and update them as we go.</p>
                     </div>
                 </div>
-
-                <div class="option-card">
-                    <h3 class="option-title">Python Implementation Optimized</h3>
-                    <button class="show-analysis-btn">Show Code</button>
-                    <div class="option-details" style="display: none;">
-                        <pre><code>def climb_stairs_optimized(n):
-    if n <= 2:
-        return n
-    prev1, prev2 = 1, 2
-    for _ in range(3, n + 1):
-        current = prev1 + prev2
-        prev1, prev2 = prev2, current
-    return prev2</code></pre>
-                        <p>Time complexity: O(n)</p>
-                        <p>Space complexity: O(1) Better!!</p>
-                    </div>
-                </div>
             </div>
-            <p>Note: this section will be supplemented with video</p>
+            <div class="video-container">
+                <video controls>
+                    <source src="assets/climb-stairs-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </section>
     </main>
 

@@ -114,32 +114,12 @@ if i == 0:
 
         <section class="example">
             <h2>Step 4: Try Writing It in Code, Analyze Space and Time Complexity</h2>
-            <div class="option-cards">
-                <div class="option-card">
-                    <h3 class="option-title">Python Implementation</h3>
-                    <button class="show-analysis-btn">Show Code</button>
-                    <div class="option-details" style="display: none;">
-                        <pre><code>def subset_sum(i, target):
-    if target == 0: 
-        return True
-    if i == 0: 
-        return (nums[0] == target)
-    return subset_sum(i-1, target) or subset_sum(i-1, target - nums[i])</code></pre>
-                    </div>
-                </div>
-
-                <div class="option-card">
-                    <h3 class="option-title">Complexity Analysis</h3>
-                    <button class="show-analysis-btn">Show Analysis</button>
-                    <div class="option-details" style="display: none;">
-                        <ul>
-                            <li>Time complexity: O(2^n)</li>
-                            <li>Space complexity: O(n)</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="video-container">
+                <video controls>
+                    <source src="assets/subset-sum-1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-            <p>Note: this section will be supplemented with video</p>
         </section>
 
         <section class="example">
@@ -149,37 +129,12 @@ if i == 0:
             <p>You can cache the result the first time and reuse it later.</p>
             <p>This strategy is called memoization (but you don't need the term to use the idea)</p>
 
-            <div class="option-cards">
-                <div class="option-card">
-                    <h3 class="option-title">Python Implementation with Memoization</h3>
-                    <button class="show-analysis-btn">Show Code</button>
-                    <div class="option-details" style="display: none;">
-                        <pre><code>memo = {}
-def subset_sum(i, target):
-    if (i, target) in memo:
-        return memo[(i, target)]
-    if target == 0:
-        return True
-    if i == 0:
-        return nums[0] == target
-    result = subset_sum(i - 1, target) or subset_sum(i - 1, target - nums[i])
-    memo[(i, target)] = result
-    return result</code></pre>
-                    </div>
-                </div>
-
-                <div class="option-card">
-                    <h3 class="option-title">Optimized Complexity Analysis</h3>
-                    <button class="show-analysis-btn">Show Analysis</button>
-                    <div class="option-details" style="display: none;">
-                        <ul>
-                            <li>Time complexity: O(n × target)</li>
-                            <li>Space complexity: O(n × target)</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="video-container">
+                <video controls>
+                    <source src="assets/subset-sum-2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
             </div>
-            <p>Note: this section will be supplemented with video</p>
         </section>
     </main>
 
