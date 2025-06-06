@@ -21,6 +21,9 @@
 /* Example section */
 .example {
     margin-bottom: calc(var(--spacing-unit) * 2);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .example h2 {
@@ -48,98 +51,41 @@
     margin-bottom: 0;
 }
 
-/* Option cards */
+/* Option buttons (replacing cards) */
 .option-cards {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 800px;
 }
 
 .option-card {
-    background: rgba(234,82,111,0.10);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(234,82,111,0.08);
-    color: var(--accent-color);
-    min-width: 280px;
-    max-width: 320px;
-    height: auto;
-    flex: 0 0 280px;
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    font-size: 1.08rem;
-    padding: 1.5rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-}
-
-.option-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(234,82,111,0.15);
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    transition: none;
+    cursor: default;
 }
 
 .option-title {
     color: var(--primary-color);
-    margin-bottom: 0.75rem;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: block;
 }
 
 .option-summary {
-    margin-bottom: 1.25rem;
-    line-height: 1.5;
-    color: var(--text-color);
-}
-
-.show-analysis-btn {
-    background: var(--primary-color);
     color: var(--accent-color);
-    border: none;
-    border-radius: 20px;
-    padding: 0.6rem 1.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.2s;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.show-analysis-btn:hover {
-    background: #c13e5a;
-    transform: translateY(-1px);
-}
-
-.option-details {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(234,82,111,0.2);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.option-details h4 {
-    color: var(--primary-color);
-    margin-bottom: 0.75rem;
-}
-
-.option-details ul {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-}
-
-.option-details li {
-    margin-bottom: 0.5rem;
+    opacity: 0.9;
+    font-size: 1.1rem;
     line-height: 1.5;
-}
-
-.option-details p {
-    font-weight: 500;
-    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: block;
 }
 
 /* Video container */
@@ -157,31 +103,6 @@
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Button styles */
-.btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    font-weight: 500;
-    text-decoration: none;
-    transition: all var(--transition-base);
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: inherit;
-    line-height: 1.2;
-}
-
-.btn-primary {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: var(--accent-color);
-    transform: translateY(-2px);
 }
 
 /* Responsive adjustments */
@@ -214,13 +135,19 @@
     }
 
     .option-cards {
-        flex-direction: column;
-        align-items: center;
+        padding: 0 1rem;
     }
-
+    
     .option-card {
-        width: 100%;
-        max-width: none;
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .option-title {
+        font-size: 1.2rem;
+    }
+    
+    .option-summary {
+        font-size: 1rem;
     }
 
     .footer {

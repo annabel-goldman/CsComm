@@ -1,0 +1,22 @@
+/* Unified Button Styles */
+
+.btn, .btn-primary, .try-problem-btn, .show-analysis-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius, 8px);
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--background-color, #fff);
+    background: linear-gradient(135deg, var(--primary-color, #ea526f), #c13e5a);
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1.2;
+}
+
+.btn:hover, .btn-primary:hover, .try-problem-btn:hover, .show-analysis-btn:hover {
+    background: linear-gradient(135deg, #c13e5a, var(--primary-color, #ea526f));
+    transform: translateY(-2px);
+} 

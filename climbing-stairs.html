@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/components/header.css">
     <link rel="stylesheet" href="styles/components/footer.css">
     <link rel="stylesheet" href="styles/components/article.css">
+    <link rel="stylesheet" href="styles/components/buttons.css">
 </head>
 <body>
     <header class="sticky-header">
@@ -49,8 +50,7 @@
 
             <div class="option-cards">
                 <div class="option-card">
-                    <h3 class="option-title">Start by listing the possibilities manually</h3>
-                    <button class="show-analysis-btn">Show All Paths</button>
+                    <button class="btn show-analysis-btn">Start by listing the possibilities manually</button>
                     <div class="option-details" style="display: none;">
                         <h4>Here are all the valid paths:</h4>
                         <ul>
@@ -78,8 +78,7 @@
 
             <div class="option-cards">
                 <div class="option-card">
-                    <h3 class="option-title">Subproblem</h3>
-                    <button class="show-analysis-btn">Show Details</button>
+                    <button class="btn show-analysis-btn">Subproblem</button>
                     <div class="option-details" style="display: none;">
                         <p>How many distinct ways can I reach the nth stair if I can take either 1 or two steps each time?</p>
                     </div>
@@ -93,8 +92,7 @@
 
             <div class="option-cards">
                 <div class="option-card">
-                    <h3 class="option-title">Recursive Step</h3>
-                    <button class="show-analysis-btn">Show Details</button>
+                    <button class="btn show-analysis-btn">Recursive Step</button>
                     <div class="option-details" style="display: none;">
                         <p>To reach step n, you either:</p>
                         <ul>
@@ -113,8 +111,7 @@
 
             <div class="option-cards">
                 <div class="option-card">
-                    <h3 class="option-title">Base Cases</h3>
-                    <button class="show-analysis-btn">Show Details</button>
+                    <button class="btn show-analysis-btn">Base Cases</button>
                     <div class="option-details" style="display: none;">
                         <ul>
                             <li>If n = 1: only 1 way (take one step)</li>
@@ -142,8 +139,7 @@
 
             <div class="option-cards">
                 <div class="option-card">
-                    <h3 class="option-title">Optimization</h3>
-                    <button class="show-analysis-btn">Show Analysis</button>
+                    <button class="btn show-analysis-btn">Optimization</button>
                     <div class="option-details" style="display: none;">
                         <p>We're storing the entire dp array, but we only ever use:</p>
                         <ul>

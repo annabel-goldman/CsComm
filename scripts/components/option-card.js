@@ -14,11 +14,9 @@ export class OptionCard {
     constructor(element) {
         this.card = element;
         this.showAnalysisBtn = this.card.querySelector('.show-analysis-btn');
-        this.title = this.card.querySelector('.option-title');
-        this.summary = this.card.querySelector('.option-summary');
         this.details = this.card.querySelector('.option-details');
         
-        if (!this.showAnalysisBtn || !this.title || !this.details) {
+        if (!this.showAnalysisBtn || !this.details) {
             throw new Error('Required elements not found in option card');
         }
         
@@ -65,7 +63,7 @@ export class OptionCard {
         });
         
         this.modal.open({
-            title: this.title.textContent,
+            title: this.showAnalysisBtn.textContent,
             content: content
         });
     }
