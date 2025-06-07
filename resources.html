@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start Small</title>
+    <title>Helpful References - Start Small</title>
     <link rel="stylesheet" href="styles/base/main.css">
     <link rel="stylesheet" href="styles/components/header.css">
     <link rel="stylesheet" href="styles/components/footer.css">
-    <link rel="stylesheet" href="styles/components/homepage.css">
+    <link rel="stylesheet" href="styles/components/subpage.css">
     <link rel="stylesheet" href="styles/components/buttons.css">
-    <link rel="icon" type="image/png" href="assets/favicon.ico">
 </head>
 <body>
     <header class="sticky-header">
@@ -34,34 +33,21 @@
     </header>
 
     <main class="container">
-        <section id="home" class="hero mb-3">
-            <h1>Start Small: Master CS Algorithms</h1>
-            <p class="subtitle">For students taking their first class on CS algorithms. If you've ever felt stuck at the first step of solving an algorithm problem, this blog is for you.</p>
+        <section class="hero mb-1">
+            <h1>References</h1>
         </section>
 
-        <section id="strategies" class="strategy-overview">
-            <div class="strategy-card mb-2" id="recursion">
-                <h3>Recursion</h3>
-                <p>Break down complex problems into smaller, similar subproblems</p>
-                <div class="problem-list">
-                    <a href="recursion.html" class="btn btn-primary read-more">Explore Recursion Problems →</a>
-                </div>
-            </div>
+        <section class="problem-description mb-2">
+            <div class="references">
+                <p>Bari, Abdul. <em>Abdul Bari</em>. YouTube, <a href="https://www.youtube.com/@abdul_bari" target="_blank">https://www.youtube.com/@abdul_bari</a>.</p>
 
-            <div class="strategy-card mb-2" id="greedy">
-                <h3>Greedy Algorithms</h3>
-                <p>Make locally optimal choices to find global solutions</p>
-                <div class="problem-list">
-                    <a href="greedy.html" class="btn btn-primary read-more">Explore Greedy Problems →</a>
-                </div>
-            </div>
+                <p>"GeeksforGeeks." <em>GeeksforGeeks</em>, 2025, <a href="https://www.geeksforgeeks.org/" target="_blank">www.geeksforgeeks.org/</a>. Accessed 7 June 2025.</p>
 
-            <div class="strategy-card mb-2" id="dp">
-                <h3>Dynamic Programming</h3>
-                <p>Store and reuse solutions to overlapping subproblems</p>
-                <div class="problem-list">
-                    <a href="dp.html" class="btn btn-primary read-more">Explore DP Problems →</a>
-                </div>
+                <p>"LeetCode - the World's Leading Online Programming Learning Platform." <em>Leetcode.com</em>, LeetCode, 2022, <a href="https://leetcode.com/" target="_blank">leetcode.com/</a>. Accessed 7 June 2025.</p>
+
+                <p>"NeetCode." <em>Neetcode.io</em>, 2025, <a href="https://neetcode.io/" target="_blank">neetcode.io/</a>. Accessed 7 June 2025.</p>
+
+                <p>Northwestern University. "COMP_SCI 336: Design & Analysis of Algorithms." <em>McCormick School of Engineering</em>, Northwestern University, 2025, <a href="https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/336.html" target="_blank">www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/336.html</a>. Instructors: Konstantin Makarychev, Jason Hartline, Dmitrii Avdiukhin, & Abhratanu Dutta.</p>
             </div>
         </section>
     </main>
@@ -73,5 +59,6 @@
     </footer>
 
     <script type="module" src="scripts/utils/dom.js"></script>
+    <script type="module" src="scripts/components/modal.js"></script>
 </body>
 </html> 

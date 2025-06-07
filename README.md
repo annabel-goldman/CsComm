@@ -1,4 +1,4 @@
-# CS Algorithm Blog
+# Start Small
 
 A modern web application for learning and exploring computer science algorithms.
 
